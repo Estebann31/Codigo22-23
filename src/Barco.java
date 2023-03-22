@@ -45,5 +45,25 @@ public class Barco {
             }
         }
     }
+    public void desapila(int columna)
+    {
+        for (int i=FILAS-1;i>=0;i--)
+        {
+            if(this.contenedor[i][columna].getIdentificador()!=-1)
+            {
+                System.out.println("Se ha eliminado el contenedor "+this.contenedor[i][columna].getIdentificador());
+                this.contenedor[i][columna].setIdentificador(-1);
+                this.contenedor[i][columna].setPeso(0);
+                this.contenedor[i][columna].setPais("");
+                this.contenedor[i][columna].setAduanas(false);
+                this.contenedor[i][columna].setPrioridad(3);
+                this.contenedor[i][columna].setDescripcion_contenido("");
+                this.contenedor[i][columna].setEmpresa_que_envia("");
+                this.contenedor[i][columna].setEmpresa_que_recibe("");
+                break;
+            }
+            System.out.println("No hay ningun contenedor en esta columna.");
+        }
+    }
 }
 
