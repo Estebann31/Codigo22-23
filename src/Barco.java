@@ -1,4 +1,6 @@
 public class Barco {
-    Contenedor[][] barco = new Contenedor[10][12];
+    public static final int FILAS = 10;
+    public static final int COLUMNAS = 12;
+    Contenedor[][] contenedor = new Contenedor[FILAS][COLUMNAS];
 
 }
