@@ -35,5 +35,17 @@ public class Barco {
         }
         return m.toString();
     }
+
+    public void apila(Contenedor contenedor)
+    {
+        if(contenedor.getPrioridad()<=0)
+        {
+            contenedor.setPrioridad(1);
+        }
+        if(contenedor.getPrioridad()>=3)
+        {
+
+        }
+    }
 }
 
