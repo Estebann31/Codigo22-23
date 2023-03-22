@@ -65,5 +65,19 @@ public class Barco {
             System.out.println("No hay ningun contenedor en esta columna.");
         }
     }
+    public int contenedoresPais (String pais){
+        int c, f;
+        int cantidad=0;
+        for (c=0;c<COLUMNAS;c++){
+            for (f=0;f<FILAS;f++){
+                if (contenedor[f][c].getPais() == pais){
+                    cantidad++;
+                }
+            }
+        }
+        return cantidad;
+    }
+
 }
+
 
