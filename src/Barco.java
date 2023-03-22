@@ -64,8 +64,8 @@ public class Barco {
                 this.contenedor[i][columna].setEmpresa_que_recibe("");
                 break;
             }
-            System.out.println("No hay ningun contenedor en esta columna.");
         }
+        System.out.println("No hay ningun contenedor en esta columna.");
     }
     public void MostrarDatos(int identificador){
         int f, c;
