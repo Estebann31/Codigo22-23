@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Barco {
     public static final int FILAS = 10;
     public static final int COLUMNAS = 12;
@@ -34,8 +36,8 @@ public class Barco {
         return m.toString();
     }
 
-    public void apila(Contenedor contenedor) {
-
+    public void apila() {
+        Contenedor contenedor = crearContenedor();
         for (int i = contenedor.getPrioridad() - 1; i < COLUMNAS; i++) {
             for (int j = 0; j < FILAS; j++) {
                 if (contenedor.getIdentificador() == -1) {
@@ -90,6 +92,27 @@ public class Barco {
     }
 
 
+    public Contenedor crearContenedor()
+    {
+        int id;
+        int peso;
+        String pais;
+        int prioridad;
+        String desc;
+        String envia;
+        String recibe;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce los datos del contenedor\n");
+        id = sc.nextInt();
+        peso = sc.nextInt();
+        pais = sc.next();
+        prioridad = sc.nextInt();
+        desc = sc.next();
+        envia = sc.next();
+        recibe = sc.next();
+        Contenedor contenedor = new Contenedor(id,peso,pais,false,prioridad,desc,envia,recibe);
+        return contenedor;
+    }
     public int contenedoresPais (String pais){
         int c, f;
         int cantidad=0;
