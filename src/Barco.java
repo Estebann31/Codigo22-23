@@ -65,5 +65,29 @@ public class Barco {
             System.out.println("No hay ningun contenedor en esta columna.");
         }
     }
+    public void MostrarDatos(int identificador){
+        int f, c;
+        for(c=0; c<COLUMNAS; c++){
+            for(f=0; f<FILAS; f++){
+                if(contenedor[f][c].getIdentificador()==identificador){
+                    System.out.println("Identificador:"+contenedor[f][c].getIdentificador());
+                    System.out.println("Peso:"+contenedor[f][c].getPeso());
+                    System.out.println("Pais:"+contenedor[f][c].getPais());
+                    System.out.println("Prioridad:"+contenedor[f][c].getPrioridad());
+                    System.out.println("Descripcion:"+contenedor[f][c].getDescripcion_contenido());
+                    System.out.println("Empresa que envía:"+contenedor[f][c].getEmpresa_que_envia());
+                    System.out.println("Empresa que recibe:"+contenedor[f][c].getEmpresa_que_recibe());
+                    break;
+                }
+            }
+            if(f!=FILAS){
+                break;
+            }
+        }
+        if(c==COLUMNAS){
+            System.out.println("Este contenedor no esta en el hub");
+        }
+    }
+
 }
 
