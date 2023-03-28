@@ -3,14 +3,10 @@ import java.util.Scanner;
 public class Barco {
     public static final int FILAS = 10;
     public static final int COLUMNAS = 12;
-    Contenedor[][] contenedor = new Contenedor[FILAS][COLUMNAS];
+    Contenedor[][] contenedor;
 
     public Barco() {
-        for (int i = 0; i < FILAS; i++) {
-            for (int j = 0; j < COLUMNAS; j++) {
-                this.contenedor[i][j] = new Contenedor(-1, 0, "", false, 1, "", "", "");
-            }
-        }
+        this.contenedor = new Contenedor[FILAS][COLUMNAS];
     }
 
     public void setContenedor(Contenedor[][] contenedor) {
@@ -25,7 +21,7 @@ public class Barco {
         StringBuilder m = new StringBuilder();
         for (int f = 0; f < FILAS; f++) {
             for (int c = 0; c < COLUMNAS; c++) {
-                if (contenedor[f][c].getIdentificador() == -1) {
+                if (this.contenedor[f][c]== null) {
                     m.append("L ");
                 } else {
                     m.append("O ");
@@ -39,33 +35,29 @@ public class Barco {
     public void apila() {
         Contenedor contenedor = crearContenedor();
         for (int i = contenedor.getPrioridad() - 1; i < COLUMNAS; i++) {
-            for (int j = 0; j < FILAS; j++) {
-                if (contenedor.getIdentificador() == -1) {
+            for (int j =FILAS-1; j >=0; j--) {
+                if (this.contenedor[j][i] == null) {
                     this.contenedor[j][i] = contenedor;
-                    break;
+                    return;
                 }
             }
         }
     }
-    public void desapila(int columna)
-    {
-        for (int i=FILAS-1;i>=0;i--)
-        {
-            if(this.contenedor[i][columna].getIdentificador()!=-1)
+    public void desapila(int columna) {
+        int aux=0;
+        for (int i = 0; i < FILAS; i++) {
+            if (this.contenedor[i][columna - 1] != null)
             {
-                System.out.println("Se ha eliminado el contenedor "+this.contenedor[i][columna].getIdentificador());
-                this.contenedor[i][columna].setIdentificador(-1);
-                this.contenedor[i][columna].setPeso(0);
-                this.contenedor[i][columna].setPais("");
-                this.contenedor[i][columna].setAduanas(false);
-                this.contenedor[i][columna].setPrioridad(3);
-                this.contenedor[i][columna].setDescripcion_contenido("");
-                this.contenedor[i][columna].setEmpresa_que_envia("");
-                this.contenedor[i][columna].setEmpresa_que_recibe("");
-                break;
+                System.out.println("Se ha eliminado el contenedor " + this.contenedor[i][columna - 1].getIdentificador());
+                this.contenedor[i][columna - 1] = null;
+                return;
             }
+            if (aux == FILAS-1)
+            {
+                System.out.println("No hay ningun contenedor en esta columna.");
+            }
+            aux++;
         }
-        System.out.println("No hay ningun contenedor en esta columna.");
     }
     public void MostrarDatos(int identificador){
         int f, c;
@@ -106,7 +98,9 @@ public class Barco {
         id = sc.nextInt();
         peso = sc.nextInt();
         pais = sc.next();
-        prioridad = sc.nextInt();
+        do{
+            prioridad = sc.nextInt();
+        }while (prioridad<=0 || prioridad>3);
         desc = sc.next();
         envia = sc.next();
         recibe = sc.next();
