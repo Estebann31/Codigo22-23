@@ -42,21 +42,23 @@ public class Barco {
             }
         }
     }
-    public void desapila(int columna) {
+    public String desapila(int columna) {
         int aux=0;
+        String resultado = "";
         for (int i = 0; i < FILAS; i++) {
             if (this.contenedor[i][columna - 1] != null)
             {
-                System.out.println("Se ha eliminado el contenedor " + this.contenedor[i][columna - 1].getIdentificador());
+                resultado+="Se ha eliminado el contenedor " + this.contenedor[i][columna - 1].getIdentificador();
                 this.contenedor[i][columna - 1] = null;
-                return;
+                return resultado;
             }
             if (aux == FILAS-1)
             {
-                System.out.println("No hay ningun contenedor en esta columna.");
+                resultado+="No hay ningun contenedor en esta columna.";
             }
             aux++;
         }
+        return resultado;
     }
     public String MostrarDatos(int identificador){
         String mostrar= "";
