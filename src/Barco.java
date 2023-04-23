@@ -58,19 +58,17 @@ public class Barco {
             aux++;
         }
     }
-    public void MostrarDatos(int identificador){
+    public String MostrarDatos(int identificador){
+        String mostrar= "";
         int f, c;
         for(c=0; c<COLUMNAS; c++){
             for(f=FILAS-1; f>0; f--) {
                 if (contenedor[f][c] != null) {
                     if (contenedor[f][c].getIdentificador() == identificador) {
-                        System.out.println("Identificador:" + contenedor[f][c].getIdentificador());
-                        System.out.println("Peso:" + contenedor[f][c].getPeso());
-                        System.out.println("Pais:" + contenedor[f][c].getPais());
-                        System.out.println("Prioridad:" + contenedor[f][c].getPrioridad());
-                        System.out.println("Descripcion:" + contenedor[f][c].getDescripcion_contenido());
-                        System.out.println("Empresa que envía:" + contenedor[f][c].getEmpresa_que_envia());
-                        System.out.println("Empresa que recibe:" + contenedor[f][c].getEmpresa_que_recibe());
+                        mostrar += "\nIdentificador:" + contenedor[f][c].getIdentificador() + "\nPeso:" + contenedor[f][c].getPeso() +"\nPais:" + contenedor[f][c].getPais()
+                        + "\nPrioridad:" + contenedor[f][c].getPrioridad() + "\nDescripcion:" + contenedor[f][c].getDescripcion_contenido()
+                        +"\nEmpresa que envía:" + contenedor[f][c].getEmpresa_que_envia()
+                        +"\nEmpresa que recibe:" + contenedor[f][c].getEmpresa_que_recibe();
                         break;
                     }
                 }
@@ -80,8 +78,9 @@ public class Barco {
             }
         }
         if(c==COLUMNAS){
-            System.out.println("Este contenedor no esta en el hub");
+            return "Este contenedor no esta en el hub";
         }
+        else return mostrar;
     }
 
     public Contenedor crearContenedor()
