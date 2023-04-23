@@ -19,7 +19,8 @@ public class Main {
                     break;
 
                 case 2:
-                    barco.apila();
+                    Contenedor contenedor = barco.crearContenedor();
+                    barco.apila(contenedor);
                     break;
 
 
@@ -38,7 +39,7 @@ public class Main {
                 case 5:
                     System.out.print("Introduce el nombre del país:");
                     pais=scanner.next();
-                    barco.contenedoresPais(pais);
+                    System.out.println(barco.contenedoresPais(pais));
                     break;
 
                 case 6:
