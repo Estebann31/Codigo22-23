@@ -3,6 +3,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Barco barco = new Barco();
+        Puerto puerto = new Puerto();
+        puerto.añadirbarco();
+        puerto.añadirbarco();
+        puerto.añadirbarco();
         Scanner scanner=new Scanner(System.in);
 
         int opcion,columna,identificador;
@@ -15,7 +19,7 @@ public class Main {
             System.out.println();
             switch (opcion){
                 case 1:
-                    System.out.println(barco.toString());
+                    System.out.println(puerto.toStringPuerto());
                     break;
 
                 case 2:
@@ -43,12 +47,6 @@ public class Main {
                     break;
 
                 case 6:
-                    System.out.println("Columna a calcular el peso:");
-                    columna= scanner.nextInt();
-                    System.out.println(barco.calculaPeso(columna));
-                    break;
-
-                case 7:
                     System.out.println("Saliendo de la aplicación...");
                     break;
             }

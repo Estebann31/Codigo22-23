@@ -129,15 +129,6 @@ public class Barco {
         return cantidad;
     }
 
-    public int calculaPeso (int columna){
-        int total = 0;
-        for (int i = 0; i < FILAS; i++) {
-            if (contenedor[i][columna - 1]!=null){
-                total += contenedor[i][columna -1 ].getPeso();
-            }
-        }
-        return total;
-    }
 }
 
 
