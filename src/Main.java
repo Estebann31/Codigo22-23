@@ -43,6 +43,12 @@ public class Main {
                     break;
 
                 case 6:
+                    System.out.println("Columna a calcular el peso:");
+                    columna= scanner.nextInt();
+                    System.out.println(barco.calculaPeso(columna));
+                    break;
+
+                case 7:
                     System.out.println("Saliendo de la aplicación...");
                     break;
             }

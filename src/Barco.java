@@ -71,6 +71,12 @@ public class Barco {
                         + "\nPrioridad:" + contenedor[f][c].getPrioridad() + "\nDescripcion:" + contenedor[f][c].getDescripcion_contenido()
                         +"\nEmpresa que envía:" + contenedor[f][c].getEmpresa_que_envia()
                         +"\nEmpresa que recibe:" + contenedor[f][c].getEmpresa_que_recibe();
+                        if (contenedor[f][c].isAduanas()){
+                            mostrar += "\nHa sido inspeccionado por el control de aduanas";
+                        }
+                        else {
+                            mostrar += "\nNo ha sido inspeccionado por el control de aduanas";
+                        }
                         break;
                     }
                 }
@@ -123,6 +129,15 @@ public class Barco {
         return cantidad;
     }
 
+    public int calculaPeso (int columna){
+        int total = 0;
+        for (int i = 0; i < FILAS; i++) {
+            if (contenedor[i][columna - 1]!=null){
+                total += contenedor[i][columna -1 ].getPeso();
+            }
+        }
+        return total;
+    }
 }
 
 
