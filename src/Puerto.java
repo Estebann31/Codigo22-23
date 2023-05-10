@@ -11,9 +11,17 @@ public class Puerto {
             this.puerto[indice] = new Barco();
             indice++;
     }
-    public String toStringPuerto()
+    public String toStringHub1()
     {
-        return "Barco 1:\n"+puerto[0].toString()+"Barco 2:\n"+puerto[1].toString()+"Barco 3:\n"+puerto[2].toString();
+        return "Barco 1:\n"+puerto[0].toString();
+    }
+    public String toStringHub2()
+    {
+        return "Barco 2:\n"+puerto[1].toString();
+    }
+    public String toStringHub3()
+    {
+        return "Barco 3:\n"+puerto[2].toString();
     }
     public void apila(Contenedor contenedor, int indice)
     {

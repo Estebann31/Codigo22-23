@@ -19,7 +19,7 @@ public class Main {
             System.out.println();
             switch (opcion){
                 case 1:
-                    System.out.println(puerto.toStringPuerto());
+                    System.out.println(puerto.toStringHub1());
                     break;
 
                 case 2:
