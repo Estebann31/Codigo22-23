@@ -46,9 +46,18 @@ public class Puerto {
 
     public String BasePrioridad(int prioridad)   //Creo un metodo String que me utilice el toString creado en clase Barco
     {                                            //Le paso la prioridad para saber de que columna coger el contenedor
-        return "Hub 1:\n"+puerto[0].toStringPrioridad(prioridad)+
-                "Hub 2:\n"+puerto[1].toStringPrioridad(prioridad)+
-                "Hub 3:\n"+puerto[2].toStringPrioridad(prioridad);
+        String mostrar="";
+        if(prioridad==0)  //Como si no seleccionas ninguna prioridad en la interfaz, la prioridad inicialmente es 0,muestro este mensaje
+        {
+            mostrar+="Seleccione una prioridad";
+        }
+        else {
+            mostrar+= "Prioridad "+prioridad+
+                    "\n\nHub 1:\n" + puerto[0].toStringPrioridad(prioridad) +
+                    "\n\nHub 2:\n" + puerto[1].toStringPrioridad(prioridad) +
+                    "\n\nHub 3:\n" + puerto[2].toStringPrioridad(prioridad);
+        }
+        return mostrar;
     }
     public void setIndice(int indice) {
         this.indice = indice;

@@ -115,7 +115,7 @@ public class Barco {
 
         if(contenedor[9][i]!=null) {
             if (contenedor[9][i].getPrioridad() == prioridad) {
-                mostrar = mostrar + "Id del contenedor: " + contenedor[9][i].getIdentificador() +
+                mostrar = mostrar + "\n\nId del contenedor: " + contenedor[9][i].getIdentificador() +
                         "\nEmpresa que envía: " + contenedor[9][i].getEmpresa_que_envia() +
                         "\nPeso del contenedor: " + contenedor[9][i].getPeso();
                 if (contenedor[9][i].isAduanas())      //Según si ha sido revisado o no por aduanas, lo muestro de una forma u otra
@@ -125,10 +125,13 @@ public class Barco {
                     mostrar += "\nEste contenedor no ha sido revisado por Aduanas";
                 }
             }
+
         }
-        else{
+
+        }
+        if(mostrar.equals(""))          //Si al acabar las comprobaciones en el hub, el mostrar sigue igual,significa que no hay ningun contenedor con esa prioridad
+        {
             mostrar+="No hay ningun contenedor con esta prioridad en este hub";
-        }
         }
         return mostrar;
     }
