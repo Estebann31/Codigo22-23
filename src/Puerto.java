@@ -1,3 +1,7 @@
+/**
+ * Esteban Caballero Morcillo
+ */
+
 import java.net.ConnectException;
 
 public class Puerto {
@@ -40,6 +44,12 @@ public class Puerto {
         return puerto[0].contenedoresPais(pais)+puerto[1].contenedoresPais(pais)+puerto[2].contenedoresPais(pais);
     }
 
+    public String BasePrioridad(int prioridad)   //Creo un metodo String que me utilice el toString creado en clase Barco
+    {                                            //Le paso la prioridad para saber de que columna coger el contenedor
+        return "Hub 1:\n"+puerto[0].toStringPrioridad(prioridad)+
+                "Hub 2:\n"+puerto[1].toStringPrioridad(prioridad)+
+                "Hub 3:\n"+puerto[2].toStringPrioridad(prioridad);
+    }
     public void setIndice(int indice) {
         this.indice = indice;
     }

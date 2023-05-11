@@ -1,3 +1,7 @@
+/**
+ * Esteban Caballero Morcillo
+ */
+
 import java.util.Scanner;
 
 public class Barco {
@@ -103,6 +107,30 @@ public class Barco {
             }
         }
         return cantidad;
+    }
+    public String toStringPrioridad(int prioridad)  //Hago un metodo toString que me muestre los datos que me pide
+    {                                               //Le paso la prioridad para seleccionar la columna y eligo la ultima fila
+        String mostrar="";
+        for (int i = 0; i < contenedor.length; i++) { //Recorro la ultima fila de las columnas del hub en busca de contenedores con la prioridad que introduzco
+
+        if(contenedor[9][i]!=null) {
+            if (contenedor[9][i].getPrioridad() == prioridad) {
+                mostrar = mostrar + "Id del contenedor: " + contenedor[9][i].getIdentificador() +
+                        "\nEmpresa que envía: " + contenedor[9][i].getEmpresa_que_envia() +
+                        "\nPeso del contenedor: " + contenedor[9][i].getPeso();
+                if (contenedor[9][i].isAduanas())      //Según si ha sido revisado o no por aduanas, lo muestro de una forma u otra
+                {
+                    mostrar += "\nEste contenedor ha sido revisado por Aduanas";
+                } else {
+                    mostrar += "\nEste contenedor no ha sido revisado por Aduanas";
+                }
+            }
+        }
+        else{
+            mostrar+="No hay ningun contenedor con esta prioridad en este hub";
+        }
+        }
+        return mostrar;
     }
 
 }
